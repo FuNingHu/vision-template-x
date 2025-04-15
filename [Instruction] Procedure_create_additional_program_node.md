@@ -20,13 +20,13 @@ This article explains step-by-step workflow to create a program node in your URC
 
 This is a typical program folder structure in a URCap project, and I want to add an additional program node into project, let's name it "activate-camera-program"
 
-![image-20250415132943506](C:\Users\funh\AppData\Roaming\Typora\typora-user-images\image-20250415132943506.png)
+![image-20250415145910111](C:\Users\funh\AppData\Roaming\Typora\typora-user-images\image-20250415145910111.png)
 
 ### Step 1: Create node files under /src/app/components
 
 It would be easier to duplicate an existing node together with it's sub 6 files into a new folder under same directory of components, and rename all their name to "activate-camera-program-xxxx", like below:
 
-![image-20250415134138494](C:\Users\funh\AppData\Roaming\Typora\typora-user-images\image-20250415134138494.png)
+![image-20250415145854297](C:\Users\funh\AppData\Roaming\Typora\typora-user-images\image-20250415145854297.png)
 
 
 
@@ -364,4 +364,4 @@ in project root folder. Here again, the **type value** specified in Step-6 is us
 
 and re-install to check whether it runs properly in your simulator.
 
-![image-20250415144353255](C:\Users\funh\AppData\Roaming\Typora\typora-user-images\image-20250415144353255.png)
+![image-20250415144353255](C:\Users\funh\myWork\a_PSX\codebase\vision-template-x\image-20250415144353255.png)
