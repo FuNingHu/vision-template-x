@@ -4,10 +4,13 @@ This article explains step-by-step workflow to create a program node in your URC
 
 
 
-[^Author]: FuNing Hu (funh@universal-robots.com)
-[^Completion date]: 2025-April-15
+### General Information:
 
+Author: FuNing Hu (funh@universal-robots.com)
 
+Completion date: 2025-April-15
+
+Location: CN Shanghai
 
 
 
@@ -363,3 +366,11 @@ in project root folder. Here again, the **type value** specified in Step-6 is us
 and re-install to check whether it runs properly in your simulator.
 
 ![image-20250415144353255](./images/image-20250415144353255.png)
+
+
+
+
+
+
+
+### -end-
