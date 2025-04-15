@@ -1,0 +1,10 @@
+metadata:
+  vendorID: "funh"
+  urcapID: "vision-template-x"
+  vendorName: "funh"
+  urcapName: "Vision Template X"
+  version: 1.0.0
+artifacts:
+  webArchives:
+  - id: "vision-template-x"
+    folder: "vision-template-x"

@@ -1,0 +1,12 @@
+{
+  "program": {
+    "tree": {
+      "nodes": {
+        "funh-vision-template-x-vision-pick-program": "Vision Pick Program",
+        "funh-vision-template-x-part-found-program": "Part Found Program",
+        "funh-vision-template-x-non-found-program": "Non Found Program",
+        "funh-vision-template-x-error-program": "Error Program"
+      }
+    }
+  }
+}
