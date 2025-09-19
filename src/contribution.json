@@ -1,0 +1,55 @@
+{
+  "applicationNodes": [
+    {
+      "translationPath": "assets/i18n/",
+      "behaviorURI": "vision-template-app.worker.js",
+      "presenterURI": "main.js",
+      "componentTagName": "funh-vision-template-x-vision-template-app"
+    }
+  ],
+  "programNodes": [
+    {
+      "excludeFromToolbox": false,
+      "translationPath": "assets/i18n/",
+      "iconURI": "assets/icons/vision-pick-program.svg",
+      "behaviorURI": "vision-pick-program.worker.js",
+      "presenterURI": "main.js",
+      "componentTagName": "funh-vision-template-x-vision-pick-program"
+    },
+    {
+      "excludeFromToolbox": true,
+      "translationPath":"assets/i18n/",
+      "iconURI":"assets/icons/part-found.svg",
+      "behaviorURI":"part-found-program.worker.js",
+      "presenterURI":"main.js",
+      "componentTagName": "funh-vision-template-x-part-found-program"
+    },
+    {
+      "excludeFromToolbox": true,
+      "translationPath":"assets/i18n/",
+      "iconURI":"assets/icons/non-found.svg",
+      "behaviorURI":"non-found-program.worker.js",
+      "presenterURI":"main.js",
+      "componentTagName": "funh-vision-template-x-non-found-program"
+    },
+    {
+      "excludeFromToolbox": true,
+      "translationPath":"assets/i18n/",
+      "iconURI":"assets/icons/error.svg",
+      "behaviorURI":"error-program.worker.js",
+      "presenterURI":"main.js",
+      "componentTagName": "funh-vision-template-x-error-program"
+    },
+    {
+      "excludeFromToolbox": false,
+      "translationPath":"assets/i18n/",
+      "iconURI":"assets/icons/arrow-fat-right.svg",
+      "behaviorURI": "activate-camera-program.worker.js",
+      "presenterURI":"main.js",
+      "componentTagName": "funh-vision-template-x-activate-camera-program"
+    }
+  ],
+  "smartSkills": [],
+  "sidebarItems": [],
+  "operatorScreens": []
+}
