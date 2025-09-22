@@ -8,6 +8,14 @@
 
 ![2_Customize_motion_profile.png](./pic/2_Customize_motion_profile.png)
 
+
+
+to achieve that, you will first need to open 1 time Application Node to permit its initialization.
+
+![6_Initialize_motion_profile.png](./pic/6_Initialize_motion_profile.png)
+
+
+
 ![3_Customize_classic_joint_node.png](./pic/3_Customize_classic_joint_node.png)
 
 ![4_Customize_Folder_with_child.png](./pic/4_Customize_Folder_with_child.png)
