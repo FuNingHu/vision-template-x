@@ -1,20 +1,45 @@
-# Build output
-/dist
-/target
+# Build output (matches anywhere in the tree)
+dist/
+tmp/
+out-tsc/
+target/
+bazel-out/
 
 # Dependencies
-/node_modules
+node_modules/
+npm/
+node/
 
 # Lock files (do not commit)
 package-lock.json
-vision-template-x-frontend/package-lock.json
+
+# Angular / SASS caches
+.angular/
+.sass-cache/
+
+# Coverage / profiling
+coverage/
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+connect.lock
+libpeerconnection.log
+testem.log
+typings/
 
 # Logs
 npm-debug.log
 yarn-error.log
 
 # IDEs and editors
-/.idea
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

@@ -8,3 +8,4 @@ artifacts:
   webArchives:
   - id: "vision-template-x-frontend"
     folder: "vision-template-x-frontend"
+    # devUrl: http://host.gateway.ip:4200/
