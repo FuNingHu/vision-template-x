@@ -2,7 +2,10 @@
 import {
     Acceleration,
     AccelerationUnits,
+    AllUnits,
+    AngularAcceleration,
     AngularAccelerationUnits,
+    AngularSpeed,
     AngularSpeedUnits,
     CommentNode,
     FolderNode,
@@ -75,7 +78,7 @@ async function createMovesToNode(moveType: MoveType, suggestedName: string): Pro
         
     };
     const speedAngularSettings: MoveToSpeedSettings={
-        acceleration: new TabInputModel<Acceleration>(
+        acceleration: new TabInputModel<AngularAcceleration>(
             {
                 value: SHARED_ANGULAR_ACCELERATION_IN_RAD_S2,
                 unit: AngularAccelerationUnits[0], //rad/s2
@@ -83,27 +86,27 @@ async function createMovesToNode(moveType: MoveType, suggestedName: string): Pro
             SelectedInput.VALUE,
             SHARED_ANGULAR_ACCELERATION_IN_RAD_S2
         ),
-        speed: new TabInputModel<Speed>(
+        speed: new TabInputModel<AngularSpeed>(
             {
                 value: SHARED_ANGULAR_SPEED_IN_RAD_S,
-                unit: AngularSpeedUnits[0], //rad/s2
+                unit: AngularSpeedUnits[0], //rad/s
             },
             SelectedInput.VALUE,
             SHARED_ANGULAR_SPEED_IN_RAD_S
         ),
         motionValue: MovementType.Classic,
-        optiMoveSpeed: new TabInputModel<Value<string>>(
+        optiMoveSpeed: new TabInputModel<Value>(
             {
                 value: 19,
-                unit: '%',
+                unit: '%' as unknown as AllUnits,
             },
             SelectedInput.VALUE,
             19
         ),
-        optiMoveAcceleration: new TabInputModel<Value<string>>(
+        optiMoveAcceleration: new TabInputModel<Value>(
             {
                 value: 4,
-                unit: '%',
+                unit: '%' as unknown as AllUnits,
             },
             SelectedInput.VALUE,
             4
@@ -127,18 +130,18 @@ async function createMovesToNode(moveType: MoveType, suggestedName: string): Pro
             SHARED_TOOL_SPEED_IN_M_S
         ),
         motionValue: MovementType.Classic,
-        optiMoveSpeed: new TabInputModel<Value<string>>(
+        optiMoveSpeed: new TabInputModel<Value>(
             {
                 value: 15,
-                unit: '%',
+                unit: '%' as unknown as AllUnits,
             },
             SelectedInput.VALUE,
             15
         ),
-        optiMoveAcceleration: new TabInputModel<Value<string>>(
+        optiMoveAcceleration: new TabInputModel<Value>(
             {
                 value: 2,
-                unit: '%',
+                unit: '%' as unknown as AllUnits,
             },
             SelectedInput.VALUE,
             2
@@ -178,7 +181,7 @@ async function createMoveToNode(moveType: MoveType, suggestedName: string): Prom
         ),
     };
     const speedAngularSettings: MoveToSpeedSettings={
-        acceleration: new TabInputModel<Acceleration>(
+        acceleration: new TabInputModel<AngularAcceleration>(
             {
                 value: SHARED_ANGULAR_ACCELERATION_IN_RAD_S2,
                 unit: AngularAccelerationUnits[0], //rad/s2
@@ -186,27 +189,27 @@ async function createMoveToNode(moveType: MoveType, suggestedName: string): Prom
             SelectedInput.VALUE,
             SHARED_ANGULAR_ACCELERATION_IN_RAD_S2
         ),
-        speed: new TabInputModel<Speed>(
+        speed: new TabInputModel<AngularSpeed>(
             {
                 value: SHARED_ANGULAR_SPEED_IN_RAD_S,
-                unit: AngularSpeedUnits[0], //rad/s2
+                unit: AngularSpeedUnits[0], //rad/s
             },
             SelectedInput.VALUE,
             SHARED_ANGULAR_SPEED_IN_RAD_S
         ),
         motionValue: MovementType.Classic,
-        optiMoveSpeed: new TabInputModel<Value<string>>(
+        optiMoveSpeed: new TabInputModel<Value>(
             {
                 value: 19,
-                unit: '%',
+                unit: '%' as unknown as AllUnits,
             },
             SelectedInput.VALUE,
             19
         ),
-        optiMoveAcceleration: new TabInputModel<Value<string>>(
+        optiMoveAcceleration: new TabInputModel<Value>(
             {
                 value: 4,
-                unit: '%',
+                unit: '%' as unknown as AllUnits,
             },
             SelectedInput.VALUE,
             4
@@ -230,18 +233,18 @@ async function createMoveToNode(moveType: MoveType, suggestedName: string): Prom
             SHARED_TOOL_SPEED_IN_M_S
         ),
         motionValue: MovementType.Classic,
-        optiMoveSpeed: new TabInputModel<Value<string>>(
+        optiMoveSpeed: new TabInputModel<Value>(
             {
                 value: 15,
-                unit: '%',
+                unit: '%' as unknown as AllUnits,
             },
             SelectedInput.VALUE,
             15
         ),
-        optiMoveAcceleration: new TabInputModel<Value<string>>(
+        optiMoveAcceleration: new TabInputModel<Value>(
             {
                 value: 2,
-                unit: '%',
+                unit: '%' as unknown as AllUnits,
             },
             SelectedInput.VALUE,
             2

@@ -8,7 +8,7 @@ This article explains step-by-step workflow to create a program node in your URC
 
 Author: FuNing Hu (funh@universal-robots.com)
 
-Completion date: 2025-April-15
+Completion date: 2025-April-15  ·  **Last Updated: 2026-05-18 (SDK 0.20.37 )**
 
 Location: CN Shanghai
 
@@ -16,20 +16,20 @@ Location: CN Shanghai
 
 ### The environment prerequisite: 
 
-- [x] SDK 0.15, 
-- [x] URSIM 10.8
+- [x] PolyScopeX SDK **0.20.37**
+- [x] URSim **10.13**
+- [x] Angular **21**, `@universal-robots/contribution-api` **21.3.131**
+
+> **Project layout note (since 2026-05-18):** this project was split into a `root + vision-template-x-frontend` two-level layout. All Angular sources now live under `vision-template-x-frontend/`. Adjust the paths in every step below by prepending `vision-template-x-frontend/`.
 
 
 
 This is a typical program folder structure in a URCap project, and I want to add an additional program node into project, let's name it "activate-camera-program"
 
-![image-20250415132943506](./images/image-20250415132943506.png)
 
-### Step 1: Create node files under /src/app/components
+### Step 1: Create node files under vision-template-x-frontend/src/app/components
 
-It would be easier to duplicate an existing node together with it's sub 6 files into a new folder under same directory of components, and rename all their name to "activate-camera-program-xxxx", like below:
-
-![image-20250415134138494](./images/image-20250415134138494.png)
+It would be easier to duplicate an existing node together with it's sub 6 files into a new folder under same directory of components, and rename all their name to "activate-camera-program-xxxx"
 
 ### Step-2: update file <activate-camera-program.node.ts>
 
@@ -51,7 +51,9 @@ export interface ActivateCameraProgramNode extends ProgramNode {
 
 ### Step-3: update file <activate-camera-program.component.ts>
 
-Update corresponding names of import component/templateUrl/styleUrls/class/Input, as below:
+Update corresponding names of import component/templateUrl/styleUrls/class/Input, as below.
+
+> **Angular 21 note:** `standalone: false` is required in the `@Component({ ... })` decorator, otherwise the new Angular CLI treats the component as standalone and `NgModule.declarations` registration breaks.
 
 ```typescript
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
@@ -240,7 +242,7 @@ registerProgramBehavior(behaviors);
 
 ### Step-7 Copy the type string to i18n
 
-in Step-6's createProgramNode method and past in /src/assets/i18n/en.json, as below:
+in Step-6's createProgramNode method and past in `vision-template-x-frontend/src/assets/i18n/en.json`, as below:
 
 ```json
 {
@@ -261,13 +263,15 @@ in Step-6's createProgramNode method and past in /src/assets/i18n/en.json, as be
 
 
 
-### Step-8 Declaration in /src/app/app.module.ts
+### Step-8 Declaration in vision-template-x-frontend/src/app/app.module.ts
 
 Notable there are 3 major section needs to add info, 
 
 - declarations
 - ngDoBootstrap
 - registerWorkersWithWebPack
+
+> **Angular 21 note:** `new Worker(new URL(..., import.meta.url))` requires `module: "esnext"` (or `"preserve"`) **plus** `moduleResolution: "bundler"` in `tsconfig.json`. With the older default `module: "es2022"` + `moduleResolution: "node"` the build will fail with *"`import.meta` is only allowed when `--module` is ..."*.
 
 ```typescript
 import { DoBootstrap, Injector, NgModule } from '@angular/core';
@@ -277,11 +281,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
 import { HttpBackend, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import {MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
+import { MultiTranslateHttpLoader } from 'ngx-translate-multi-http-loader';
 import { PATH } from '../generated/contribution-constants';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivateCameraComponent } from './components/activate-camera-program/activate-camera-program.component';
-import { ActiveDescendantKeyManager } from '@angular/cdk/a11y';
+
 export const httpLoaderFactory = (http: HttpBackend) =>
     new MultiTranslateHttpLoader(http, [
         { prefix: PATH + '/assets/i18n/', suffix: '.json' },
@@ -291,7 +295,7 @@ export const httpLoaderFactory = (http: HttpBackend) =>
 @NgModule({
     declarations: [
         // ... other components
-        ActivateCameraComponent, //should declare your component here!
+        ActivateCameraComponent, // should declare your component here!
     ],
     imports: [
         BrowserModule,
@@ -305,7 +309,6 @@ export const httpLoaderFactory = (http: HttpBackend) =>
     ],
     providers: [],
 })
-
 export class AppModule implements DoBootstrap {
     constructor(private injector: Injector) {
     }
@@ -313,32 +316,30 @@ export class AppModule implements DoBootstrap {
     ngDoBootstrap() {
         // other node's customElements define
         // ...
-        const activatecameraprogramComponent = createCustomElement(ActiveDescendantKeyManager, {injector: this.injector});
+        const activatecameraprogramComponent = createCustomElement(ActivateCameraComponent, { injector: this.injector });
         customElements.define('funh-vision-template-x-activate-camera-program', activatecameraprogramComponent);
     }
 
     // This function is never called, because we don't want to actually use the workers, just tell webpack about them
     registerWorkersWithWebPack() {
-        
+
         // other node's worker registration
-        //....
-        
+        // ....
+
         new Worker(new URL('./components/activate-camera-program/activate-camera-program.behavior.worker.ts'
-            /* webpackChunkName: "activate-camera-program.worker" */, import.meta.url),{
+            /* webpackChunkName: "activate-camera-program.worker" */, import.meta.url), {
             name: 'activate-camera',
             type: 'module'
         });
     }
 }
-
-
 ```
 
 
 
-### Step-9 Add one part in <contribution.json> 
+### Step-9 Add one part in <contribution.json>
 
-in project root folder. Here again, the **type value** specified in Step-6 is used.
+located at `vision-template-x-frontend/src/contribution.json`. Here again, the **type value** specified in Step-6 is used.
 
 ```json
 {
@@ -363,10 +364,14 @@ in project root folder. Here again, the **type value** specified in Step-6 is us
 
 ### Step-10 recompile project 
 
-and re-install to check whether it runs properly in your simulator.
+Run from the **project root** (`vision-template-x/`), not the frontend folder — the orchestrator package.json delegates to the frontend automatically:
 
-![image-20250415144353255](./images/image-20250415144353255.png)
+```bash
+npm run build
+npm run install-urcap -- --port 45000
+```
 
+Then refresh PolyScope to check whether the new node appears in the Program tree.
 
 
 

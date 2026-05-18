@@ -1,0 +1,27 @@
+# Build output
+/dist
+/target
+
+# Dependencies
+/node_modules
+
+# Lock files (do not commit)
+package-lock.json
+vision-template-x-frontend/package-lock.json
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+/.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# System Files
+.DS_Store
+Thumbs.db

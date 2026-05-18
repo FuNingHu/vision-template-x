@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "vision-template-x": {
+    "vision-template-x-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -21,7 +21,7 @@
           "builder": "ngx-build-plus:browser",
           "options": {
             "singleBundle": true,
-            "outputPath": "dist/vision-template-x",
+            "outputPath": "dist/vision-template-x-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -75,10 +75,10 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "vision-template-x:build:production"
+              "buildTarget": "vision-template-x-frontend:build:production"
             },
             "development": {
-              "buildTarget": "vision-template-x:build:development"
+              "buildTarget": "vision-template-x-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "vision-template-x:build"
+            "buildTarget": "vision-template-x-frontend:build"
           }
         },
         "lint": {

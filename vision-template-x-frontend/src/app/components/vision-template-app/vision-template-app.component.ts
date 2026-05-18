@@ -1,7 +1,7 @@
 import { TranslateService } from '@ngx-translate/core';
 import { first } from 'rxjs/operators';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { ApplicationPresenterAPI, ApplicationPresenter, RobotSettings, URVariable, URSymbolType, TabInputModel, Speed, Acceleration, Value, MotionProfileMoveParameters, MovementType, MotionProfile, MotionProfilesNode } from '@universal-robots/contribution-api';
+import { ApplicationPresenterAPI, ApplicationPresenter, RobotSettings, URVariable, URSymbolType, TabInputModel, Speed, AngularSpeed, Acceleration, AngularAcceleration, AllUnits, Value, MotionProfileMoveParameters, MovementType, MotionProfile, MotionProfilesNode } from '@universal-robots/contribution-api';
 import { VisionTemplateAppNode } from './vision-template-app.node';
 
 @Component({
@@ -53,7 +53,7 @@ export class VisionTemplateAppComponent implements ApplicationPresenter, OnChang
             type: URSymbolType.Variable,
             name: 'VisionPickMP'
         };
-        const mySpeed: TabInputModel<Speed> ={
+        const mySpeed: TabInputModel<AngularSpeed> ={
             entity: {
                 value: 1.134464014,
                 unit: 'rad/s'
@@ -62,7 +62,7 @@ export class VisionTemplateAppComponent implements ApplicationPresenter, OnChang
             value: 1.134464014
         };
         
-        const myAcceleration: TabInputModel<Acceleration> ={
+        const myAcceleration: TabInputModel<AngularAcceleration> ={
             entity: {
                 value: 1.483529864,
                 unit: 'rad/s^2'
@@ -74,7 +74,7 @@ export class VisionTemplateAppComponent implements ApplicationPresenter, OnChang
         const myOptiMoveSpeed: TabInputModel<Value> ={
             entity:{
                 value: 19,
-                unit: '%'
+                unit: '%' as unknown as AllUnits
             },
             selectedType: 'VALUE',
             value: 19
@@ -83,7 +83,7 @@ export class VisionTemplateAppComponent implements ApplicationPresenter, OnChang
         const myOptiMoveAcceleration: TabInputModel<Value> = {
             entity: {
                 value: 4,
-                unit: '%'
+                unit: '%' as unknown as AllUnits
             },
             selectedType: 'VALUE',
             value: 4

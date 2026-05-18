@@ -1,5 +1,11 @@
 # Angular contribution
 
+> **Targets:** PolyScopeX **0.20.37** · Angular **21** · `@universal-robots/contribution-api` **21.3.131**
+
+## Changelog
+
+### 2026-May-18 — SDK 0.20.37 upgrade
+
 
 
 ## Features of this sample
