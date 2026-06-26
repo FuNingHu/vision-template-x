@@ -4,7 +4,7 @@
 
 ## Changelog
 
-### 2026-May-18 — SDK 0.20.37 upgrade
+### 2026-May-18 — SDK 0.20.49 upgrade
 
 
 
